@@ -1,0 +1,28 @@
+{
+    "Name": "Bandit",
+    "Description": "Bandits rove in gangs and are sometimes led by thugs, veterans, or spellcasters. Not all bandits are evil. Oppression, drought, disease, or famine can often drive otherwise honest folk to a life of banditry.\nPirates are bandits of the high seas. They might be interested only in treasure and murder, or they might be privateers sanctioned by the crown to attack and plunder an enemy nation's vessels.",
+    "AC": 12,
+    "HP": 11,
+    "Speed": 30,
+    "STR": 11,
+    "DEX": 12,
+    "CON": 12,
+    "INT": 10,
+    "WIS": 10,
+    "CHA": 10,
+    "Senses": 10,
+    "CR": {
+        "Rating": 0.125,
+        "EXP": 25
+    },
+    "Actions": [
+        {
+            "Name": "Scimitar",
+            "Description": "Melee Weapon Attack. +3 to hit, reach 5ft., one target. Hit: 4 (1d6 + 1) slashing damage."
+        },
+        {
+            "Name": "Light Crossbow",
+            "Description": "Ranged Weapon Attack. +3 to hit, range 80/320 ft., one target. Hit: 5 (1d8 + 1) piercing damage."
+        }
+    ]
+}

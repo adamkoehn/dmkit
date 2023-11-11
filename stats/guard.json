@@ -1,0 +1,27 @@
+{
+    "Name": "Guard",
+    "Description": "Guards include members of a city watch, sentries in a citadel or fortified town, and the bodyguards of merchants and nobles",
+    "AC": 16,
+    "HP": 11,
+    "Speed": 30,
+    "STR": 13,
+    "DEX": 12,
+    "CON": 12,
+    "INT": 10,
+    "WIS": 11,
+    "CHA": 10,
+    "Skills": {
+        "Perception": 2
+    },
+    "Senses": 12,
+    "Challenge": {
+        "Rating": 0.125,
+        "EXP": 25
+    },
+    "Actions": [
+        {
+            "Name": "Spear",
+            "Description": "Melee or Range Weapon Attack: +3 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d6 + 1) piercing damage, or 5 (1d8 + 1) piercing damage if used with two hands to make a melee attack."
+        }
+    ]
+}

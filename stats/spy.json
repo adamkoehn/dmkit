@@ -1,0 +1,51 @@
+{
+    "Name": "Spy",
+    "Description": "Rulers, nobles, merchants, guildmasters, and other wealthy individuals use spies to gain the upper hand in a world of cutthroat politics. A spy is trained to secretly gather information. Loyal spies would rather die than divulge information that could compromise the or their employers.",
+    "AC": 12,
+    "HP": 27,
+    "Speed": 30,
+    "STR": 10,
+    "DEX": 15,
+    "CON": 10,
+    "INT": 12,
+    "WIS": 14,
+    "CHA": 16,
+    "Senses": 16,
+    "Challenge": {
+        "Rating": 1,
+        "EXP": 200
+    },
+    "Skills": {
+        "Deception": 5,
+        "Insight": 4,
+        "Investigation": 5,
+        "Perception": 6,
+        "Persuasion": 5,
+        "Sleight of Hand": 4,
+        "Stealth": 4
+    },
+    "Traits": [
+        {
+            "Name": "Cunning Action",
+            "Deception": "On each of its turns, the spy can use a bonus action to take the Dash, Disengage, or Hide action."
+        },
+        {
+            "Name": "Sneak Attack",
+            "Deception": "Once per turn, the spy deals an extra 7 (2d6) damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 feet of an ally of the spy that isn't incapacitated and the spy doesn't have disadvantage on the attack roll."
+        }
+    ],
+    "Actions": [
+        {
+            "Name": "Multiattack",
+            "Description": "The spy makes two melee attacks."
+        },
+        {
+            "Name": "Shortsword",
+            "Description": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage."
+        },
+        {
+            "Name": "Hand Crossbow",
+            "Description": "Ranged Weapon Attack: +4 to hit, range 30/120 ft., one target. Hit: 5 (1d6 + 2) piercing damage."
+        }
+    ]
+}
