@@ -15,14 +15,33 @@ func init() {
 func CreateRandomCharacter() Character {
 	race := RandomRace()
 	class := RandomClass()
+	abilities := RandomAbilities(race, class)
+	hitDie := class.GetHitDie()
+	hitPoints := hitDie.Max() + abilities.Constitution.Modifier()
 
 	return Character{
+		// CharacterName
+		// PlayerName
+		Class: class,
+		Level: 1,
+		// Background
 		Race:        race,
-		Class:       class,
-		Abilities:   RandomAbilities(race, class),
 		Alignment:   RandomAlignment(),
+		Experience:  0,
 		Inspiration: false,
 		Proficiency: 2,
+		Abilities:   abilities,
+		// Skills
+		// Armor Class
+		// Initiative
+		// Speed
+		MaxHitPoints:       HitPoints(hitPoints),
+		HitPoints:          HitPoints(hitPoints),
+		TemporaryHitPoints: HitPoints(0),
+		HitDiceCount:       1,
+		HitDie:             hitDie,
+		DeathSaves:         DeathSaves{Success: 0, Failures: 0},
+		PassiveWisdom:      PassiveWisdom(10 + abilities.Wisdom.Modifier()),
 	}
 }
 
@@ -80,7 +99,7 @@ func RandomAbilities(race Race, class Class) Abilities {
 		"cha",
 	}
 
-	switch class {
+	switch class.ClassName() {
 	case CLASS_BARBARIAN:
 		preferences = []string{"str", "con", "dex", "wis", "cha", "int"}
 	case CLASS_BARD:
@@ -177,9 +196,9 @@ func RandomRace() Race {
 		return HalfOrc{}
 	case RACE_TIEFLING:
 		return Tiefling{}
-	default:
-		return Human{} // is there something else we can do here?
 	}
+
+	panic("Cannot determine race")
 }
 
 func RandomBaseRace() BaseRace {
@@ -239,7 +258,7 @@ func RandomGnomeSubRace() SubRace {
 }
 
 func RandomClass() Class {
-	return RandomFromList[Class]([]Class{
+	class := RandomFromList[ClassName]([]ClassName{
 		CLASS_BARBARIAN,
 		CLASS_BARD,
 		CLASS_CLERIC,
@@ -253,6 +272,35 @@ func RandomClass() Class {
 		CLASS_WARLOCK,
 		CLASS_WIZARD,
 	})
+
+	switch class {
+	case CLASS_BARBARIAN:
+		return Barbarian{}
+	case CLASS_BARD:
+		return Bard{}
+	case CLASS_CLERIC:
+		return Cleric{}
+	case CLASS_DRUID:
+		return Druid{}
+	case CLASS_FIGHTER:
+		return Fighter{}
+	case CLASS_MONK:
+		return Monk{}
+	case CLASS_PALADIN:
+		return Paladin{}
+	case CLASS_RANGER:
+		return Ranger{}
+	case CLASS_ROGUE:
+		return Rogue{}
+	case CLASS_SORCERER:
+		return Sorcerer{}
+	case CLASS_WARLOCK:
+		return Warlock{}
+	case CLASS_WIZARD:
+		return Wizard{}
+	}
+
+	panic("Cannot determine class")
 }
 
 func RandomAlignment() Alignment {

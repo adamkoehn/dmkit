@@ -72,10 +72,10 @@ func GetTreasureHoard0To4() *TreasureHoard {
 
 	treasure := TreasureHoard{
 		Coins: Coins{
-			CP: d6.RollTimes(6) * 100,
-			SP: d6.RollTimes(3) * 100,
+			CP: dice.RollTimes(d6, 6) * 100,
+			SP: dice.RollTimes(d6, 3) * 100,
 			EP: 0,
-			GP: d6.RollTimes(2) * 10,
+			GP: dice.RollTimes(d6, 2) * 10,
 			PP: 0,
 		},
 	}
@@ -83,79 +83,79 @@ func GetTreasureHoard0To4() *TreasureHoard {
 	roll := d100.Roll()
 
 	if roll >= 7 && roll <= 16 {
-		Add10GPGems(&treasure, d6.RollTimes(2))
+		Add10GPGems(&treasure, dice.RollTimes(d6, 2))
 	}
 
 	if roll >= 17 && roll <= 26 {
-		Add25GPArtwork(&treasure, d4.RollTimes(2))
+		Add25GPArtwork(&treasure, dice.RollTimes(d4, 2))
 	}
 
 	if roll >= 27 && roll <= 36 {
-		Add50GPGems(&treasure, d6.RollTimes(2))
+		Add50GPGems(&treasure, dice.RollTimes(d6, 2))
 	}
 
 	if roll >= 37 && roll <= 44 {
-		Add10GPGems(&treasure, d6.RollTimes(2))
+		Add10GPGems(&treasure, dice.RollTimes(d6, 2))
 		AddTableAItems(&treasure, d6.Roll())
 	}
 
 	if roll >= 45 && roll <= 52 {
-		Add25GPArtwork(&treasure, d4.RollTimes(2))
+		Add25GPArtwork(&treasure, dice.RollTimes(d4, 2))
 		AddTableAItems(&treasure, d6.Roll())
 	}
 
 	if roll >= 53 && roll <= 60 {
-		Add50GPGems(&treasure, d6.RollTimes(2))
+		Add50GPGems(&treasure, dice.RollTimes(d6, 2))
 		AddTableAItems(&treasure, d6.Roll())
 	}
 
 	if roll >= 61 && roll <= 65 {
-		Add10GPGems(&treasure, d6.RollTimes(2))
+		Add10GPGems(&treasure, dice.RollTimes(d6, 2))
 		AddTableBItems(&treasure, d4.Roll())
 	}
 
 	if roll >= 66 && roll <= 70 {
-		Add25GPArtwork(&treasure, d4.RollTimes(2))
+		Add25GPArtwork(&treasure, dice.RollTimes(d4, 2))
 		AddTableBItems(&treasure, d4.Roll())
 	}
 
 	if roll >= 71 && roll <= 75 {
-		Add50GPGems(&treasure, d6.RollTimes(2))
+		Add50GPGems(&treasure, dice.RollTimes(d6, 2))
 		AddTableBItems(&treasure, d4.Roll())
 	}
 
 	if roll >= 76 && roll <= 78 {
-		Add10GPGems(&treasure, d6.RollTimes(2))
+		Add10GPGems(&treasure, dice.RollTimes(d6, 2))
 		AddTableCItems(&treasure, d4.Roll())
 	}
 
 	if roll >= 79 && roll <= 80 {
-		Add25GPArtwork(&treasure, d4.RollTimes(2))
+		Add25GPArtwork(&treasure, dice.RollTimes(d4, 2))
 		AddTableCItems(&treasure, d4.Roll())
 	}
 
 	if roll >= 81 && roll <= 85 {
-		Add50GPGems(&treasure, d6.RollTimes(2))
+		Add50GPGems(&treasure, dice.RollTimes(d6, 2))
 		AddTableCItems(&treasure, d4.Roll())
 	}
 
 	if roll >= 86 && roll <= 92 {
-		Add25GPArtwork(&treasure, d4.RollTimes(2))
+		Add25GPArtwork(&treasure, dice.RollTimes(d4, 2))
 		AddTableFItems(&treasure, d4.Roll())
 	}
 
 	if roll >= 93 && roll <= 97 {
-		Add50GPGems(&treasure, d6.RollTimes(2))
+		Add50GPGems(&treasure, dice.RollTimes(d6, 2))
 		AddTableFItems(&treasure, d4.Roll())
 	}
 
 	if roll >= 98 || roll <= 99 {
-		Add25GPArtwork(&treasure, d4.RollTimes(2))
+		Add25GPArtwork(&treasure, dice.RollTimes(d4, 2))
 		AddTableGItems(&treasure, 1)
 	}
 
 	if roll == 100 {
-		Add50GPGems(&treasure, d6.RollTimes(2))
+		Add50GPGems(&treasure, dice.RollTimes(d6, 2))
 		AddTableGItems(&treasure, 1)
 	}
 

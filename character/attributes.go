@@ -13,7 +13,7 @@ type Ability int
 type Modifier int
 type Inspiration bool
 type Proficiency int
-type Class string
+type ClassName string
 type Level uint
 type Background string
 type Morality string
@@ -28,24 +28,24 @@ type HitDiceCount uint
 type PassiveWisdom uint
 
 const (
-	MORALITY_GOOD    Morality = "Good"
-	MORALITY_NEUTRAL Morality = "Neutral"
-	MORALITY_EVIL    Morality = "Evil"
-	ATTITUDE_LAWFUL  Attitude = "Lawful"
-	ATTITUDE_NEUTRAL Attitude = "Neutral"
-	ATTITUDE_CHAOTIC Attitude = "Chaotic"
-	CLASS_BARBARIAN  Class    = "Barbarian"
-	CLASS_BARD       Class    = "Bard"
-	CLASS_CLERIC     Class    = "Cleric"
-	CLASS_DRUID      Class    = "Druid"
-	CLASS_FIGHTER    Class    = "Fighter"
-	CLASS_MONK       Class    = "Monk"
-	CLASS_PALADIN    Class    = "Paladin"
-	CLASS_RANGER     Class    = "Ranger"
-	CLASS_ROGUE      Class    = "Rogue"
-	CLASS_SORCERER   Class    = "Sorcerer"
-	CLASS_WARLOCK    Class    = "Warlock"
-	CLASS_WIZARD     Class    = "Wizard"
+	MORALITY_GOOD    Morality  = "Good"
+	MORALITY_NEUTRAL Morality  = "Neutral"
+	MORALITY_EVIL    Morality  = "Evil"
+	ATTITUDE_LAWFUL  Attitude  = "Lawful"
+	ATTITUDE_NEUTRAL Attitude  = "Neutral"
+	ATTITUDE_CHAOTIC Attitude  = "Chaotic"
+	CLASS_BARBARIAN  ClassName = "Barbarian"
+	CLASS_BARD       ClassName = "Bard"
+	CLASS_CLERIC     ClassName = "Cleric"
+	CLASS_DRUID      ClassName = "Druid"
+	CLASS_FIGHTER    ClassName = "Fighter"
+	CLASS_MONK       ClassName = "Monk"
+	CLASS_PALADIN    ClassName = "Paladin"
+	CLASS_RANGER     ClassName = "Ranger"
+	CLASS_ROGUE      ClassName = "Rogue"
+	CLASS_SORCERER   ClassName = "Sorcerer"
+	CLASS_WARLOCK    ClassName = "Warlock"
+	CLASS_WIZARD     ClassName = "Wizard"
 )
 
 type Alignment struct {
@@ -127,7 +127,7 @@ type Character struct {
 	HitPoints          HitPoints     `json:"hitPoints"`
 	TemporaryHitPoints HitPoints     `json:"temporaryHitPoints"`
 	HitDiceCount       HitDiceCount  `json:"hitDiceCount"`
-	HitDice            dice.Dice     `json:"hitDice"`
+	HitDie             dice.Die      `json:"hitDie"`
 	DeathSaves         DeathSaves    `json:"deathSaves"`
 	PassiveWisdom      PassiveWisdom `json:"passiveWisdom"`
 }

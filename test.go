@@ -9,7 +9,10 @@ import (
 func main() {
 	character := character.CreateRandomCharacter()
 
-	fmt.Printf("%s - %s\n", character.Race.String(), character.Class)
+	fmt.Printf("%s - %s\n", character.Race.String(), character.Class.String())
+	fmt.Printf("Level: %d\n", character.Level)
+	fmt.Printf("Hit Dice: %s\n", character.HitDie.String())
+	fmt.Printf("Hit Points: %d\n", character.HitPoints)
 	fmt.Println(character.Alignment.String())
 	fmt.Println("____________________________________________")
 	fmt.Printf("  Strength: %d (%d)\n", character.Abilities.Strength, character.Abilities.Strength.Modifier())
