@@ -6,6 +6,7 @@ type Class interface {
 	ClassName() ClassName
 	String() string
 	GetHitDie() dice.Die
+	GenerateSavingThrows(abilities Abilities, proficiency Proficiency) SavingThrows
 }
 
 type Barbarian struct{}
@@ -22,6 +23,15 @@ func (Barbarian Barbarian) GetHitDie() dice.Die {
 	return dice.D12{}
 }
 
+func (barbarian Barbarian) GenerateSavingThrows(abilities Abilities, proficiency Proficiency) SavingThrows {
+	saves := abilities.GenerateSavingThrows()
+
+	saves.Strength.AddProficiency(proficiency)
+	saves.Constitution.AddProficiency(proficiency)
+
+	return saves
+}
+
 type Bard struct{}
 
 func (bard Bard) ClassName() ClassName {
@@ -34,6 +44,15 @@ func (bard Bard) String() string {
 
 func (bard Bard) GetHitDie() dice.Die {
 	return dice.D8{}
+}
+
+func (bard Bard) GenerateSavingThrows(abilities Abilities, proficiency Proficiency) SavingThrows {
+	saves := abilities.GenerateSavingThrows()
+
+	saves.Dexterity.AddProficiency(proficiency)
+	saves.Charisma.AddProficiency(proficiency)
+
+	return saves
 }
 
 type Cleric struct{}
@@ -50,6 +69,15 @@ func (cleric Cleric) GetHitDie() dice.Die {
 	return dice.D8{}
 }
 
+func (cleric Cleric) GenerateSavingThrows(abilities Abilities, proficiency Proficiency) SavingThrows {
+	saves := abilities.GenerateSavingThrows()
+
+	saves.Wisdom.AddProficiency(proficiency)
+	saves.Charisma.AddProficiency(proficiency)
+
+	return saves
+}
+
 type Druid struct{}
 
 func (druid Druid) ClassName() ClassName {
@@ -62,6 +90,15 @@ func (druid Druid) String() string {
 
 func (druid Druid) GetHitDie() dice.Die {
 	return dice.D8{}
+}
+
+func (druid Druid) GenerateSavingThrows(abilities Abilities, proficiency Proficiency) SavingThrows {
+	saves := abilities.GenerateSavingThrows()
+
+	saves.Intelligence.AddProficiency(proficiency)
+	saves.Wisdom.AddProficiency(proficiency)
+
+	return saves
 }
 
 type Fighter struct{}
@@ -78,6 +115,15 @@ func (fighter Fighter) GetHitDie() dice.Die {
 	return dice.D10{}
 }
 
+func (fighter Fighter) GenerateSavingThrows(abilities Abilities, proficiency Proficiency) SavingThrows {
+	saves := abilities.GenerateSavingThrows()
+
+	saves.Strength.AddProficiency(proficiency)
+	saves.Constitution.AddProficiency(proficiency)
+
+	return saves
+}
+
 type Monk struct{}
 
 func (monk Monk) ClassName() ClassName {
@@ -90,6 +136,15 @@ func (monk Monk) String() string {
 
 func (monk Monk) GetHitDie() dice.Die {
 	return dice.D8{}
+}
+
+func (monk Monk) GenerateSavingThrows(abilities Abilities, proficiency Proficiency) SavingThrows {
+	saves := abilities.GenerateSavingThrows()
+
+	saves.Strength.AddProficiency(proficiency)
+	saves.Dexterity.AddProficiency(proficiency)
+
+	return saves
 }
 
 type Paladin struct{}
@@ -106,6 +161,15 @@ func (paladin Paladin) GetHitDie() dice.Die {
 	return dice.D10{}
 }
 
+func (paladin Paladin) GenerateSavingThrows(abilities Abilities, proficiency Proficiency) SavingThrows {
+	saves := abilities.GenerateSavingThrows()
+
+	saves.Wisdom.AddProficiency(proficiency)
+	saves.Charisma.AddProficiency(proficiency)
+
+	return saves
+}
+
 type Ranger struct{}
 
 func (ranger Ranger) ClassName() ClassName {
@@ -118,6 +182,15 @@ func (ranger Ranger) String() string {
 
 func (ranger Ranger) GetHitDie() dice.Die {
 	return dice.D10{}
+}
+
+func (ranger Ranger) GenerateSavingThrows(abilities Abilities, proficiency Proficiency) SavingThrows {
+	saves := abilities.GenerateSavingThrows()
+
+	saves.Strength.AddProficiency(proficiency)
+	saves.Dexterity.AddProficiency(proficiency)
+
+	return saves
 }
 
 type Rogue struct{}
@@ -134,6 +207,15 @@ func (rogue Rogue) GetHitDie() dice.Die {
 	return dice.D8{}
 }
 
+func (rogue Rogue) GenerateSavingThrows(abilities Abilities, proficiency Proficiency) SavingThrows {
+	saves := abilities.GenerateSavingThrows()
+
+	saves.Dexterity.AddProficiency(proficiency)
+	saves.Intelligence.AddProficiency(proficiency)
+
+	return saves
+}
+
 type Sorcerer struct{}
 
 func (sorcerer Sorcerer) ClassName() ClassName {
@@ -146,6 +228,15 @@ func (sorcerer Sorcerer) String() string {
 
 func (sorcerer Sorcerer) GetHitDie() dice.Die {
 	return dice.D6{}
+}
+
+func (sorcerer Sorcerer) GenerateSavingThrows(abilities Abilities, proficiency Proficiency) SavingThrows {
+	saves := abilities.GenerateSavingThrows()
+
+	saves.Constitution.AddProficiency(proficiency)
+	saves.Charisma.AddProficiency(proficiency)
+
+	return saves
 }
 
 type Warlock struct{}
@@ -162,6 +253,15 @@ func (warlock Warlock) GetHitDie() dice.Die {
 	return dice.D8{}
 }
 
+func (warlock Warlock) GenerateSavingThrows(abilities Abilities, proficiency Proficiency) SavingThrows {
+	saves := abilities.GenerateSavingThrows()
+
+	saves.Wisdom.AddProficiency(proficiency)
+	saves.Charisma.AddProficiency(proficiency)
+
+	return saves
+}
+
 type Wizard struct{}
 
 func (wizard Wizard) ClassName() ClassName {
@@ -174,4 +274,13 @@ func (wizard Wizard) String() string {
 
 func (wizard Wizard) GetHitDie() dice.Die {
 	return dice.D6{}
+}
+
+func (wizard Wizard) GenerateSavingThrows(abilities Abilities, proficiency Proficiency) SavingThrows {
+	saves := abilities.GenerateSavingThrows()
+
+	saves.Intelligence.AddProficiency(proficiency)
+	saves.Wisdom.AddProficiency(proficiency)
+
+	return saves
 }

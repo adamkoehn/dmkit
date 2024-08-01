@@ -25,13 +25,14 @@ func CreateRandomCharacter() Character {
 		Class: class,
 		Level: 1,
 		// Background
-		Race:        race,
-		Alignment:   RandomAlignment(),
-		Experience:  0,
-		Inspiration: false,
-		Proficiency: 2,
-		Abilities:   abilities,
-		// Skills
+		Race:         race,
+		Alignment:    RandomAlignment(),
+		Experience:   0,
+		Inspiration:  false,
+		Proficiency:  2,
+		SavingThrows: class.GenerateSavingThrows(abilities, 2),
+		Abilities:    abilities,
+		Skills:       abilities.GenerateSkills(), // TODO: add proficiencies
 		// Armor Class
 		// Initiative
 		// Speed
